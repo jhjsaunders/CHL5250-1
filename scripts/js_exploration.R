@@ -76,17 +76,5 @@ df <- df %>%
 df <- df %>%
   mutate(frac = if_else(if_any(frac_hip:frac_spine, ~ .x == 1), 1, 0))
 
-caret::varImp(df, scale = F)
 
 
-
-
-
-#### examine columns for deletion ####
-df %>%
-  filter(diabetes_age_dx > 100) %>%
-  select(diabetes_age_dx)
-  ggplot(aes(x = diabetes_age_dx)) +
-  geom_density()
-  
-  
